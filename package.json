@@ -1,0 +1,19 @@
+{
+  "name": "openid-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "start:dev": "NODE_ENV=development nodemon ./app.js --exec node --config ./nodemon.json"
+  },
+  "author": "Dongsheng Cai <d@tux.im> (http://dongsheng.org/)",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "^4.16.2",
+    "oidc-provider": "^2.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}

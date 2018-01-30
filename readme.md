@@ -1,0 +1,11 @@
+# request url:
+
+```
+http://localhost:9090/auth?client_id=westpac-sso-app&redirect_uri=https://westpac-sso-app/callback&response_type=id_token&scope=openid%20profile&nonce=123&state=321
+```
+
+# sample redirect:
+
+```
+https://westpac-sso-app/callback#id_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleXN0b3JlLUNIQU5HRS1NRSJ9.eyJzdWIiOiJzZGYiLCJub25jZSI6IjEyMyIsInNfaGFzaCI6ImpTUFBiSWJvTktlcWJ0N1ZUQ2JPS3ciLCJhdWQiOiJ3ZXN0cGFjLXNzby1hcHAiLCJleHAiOjE1MTczMDk2NjEsImlhdCI6MTUxNzMwNjA2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwIn0.UiyKmq_LS0R68x0cUHHiVgnfWio-AKgY3GMviMZFf3FYkVT9nYLwgLUhsvSaKPL9w1tucQ26lsGWT3NJz-Hkd4ZF9SXdDtPo7rL1mOTvPt8TSzcmF4ll7rqftmYpxbRigsa8P8ctI3Prvuz1NNjm0iQB2mgGHg0meePVOdWEmoP0mCevRM0QV2azDVg0Hzk5NQWD3K780L8X0T93DsN7IVl5WrZNKqSNkrbRodIym4pzdUOru678f0GT89Y6FvLa6jDTMGMZudFC6KGZjOuasAmag_xRANjBDgSVvujgQFVwxtXy8EC737j-imlgDMlha-PM69OWPVz1lNMKBFe6gQ&state=321
+```

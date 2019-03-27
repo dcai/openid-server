@@ -11,9 +11,10 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "express": "^4.16.2",
-    "oidc-provider": "^2.13.0"
+    "oidc-provider": "^5.5.5"
   },
   "devDependencies": {
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4"
   }
 }

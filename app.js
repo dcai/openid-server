@@ -7,17 +7,19 @@ const Provider = require('oidc-provider');
 
 const app = express();
 
-const clients = [
-  {
-    client_id: clientId,
-    grant_types: ['implicit'],
-    response_types: ['id_token'],
-    redirect_uris: [clientCallbackUrl],
-    token_endpoint_auth_method: 'none',
-  },
-];
-
 const providerConfig = {
+  cookies: {
+    keys: ['a', 'b'],
+  },
+  clients: [
+    {
+      client_id: clientId,
+      grant_types: ['implicit'],
+      response_types: ['id_token'],
+      redirect_uris: [clientCallbackUrl],
+      token_endpoint_auth_method: 'none',
+    },
+  ],
   claims: {
     email: ['email', 'email_verified'],
     phone: ['phone_number', 'phone_number_verified'],
@@ -46,11 +48,8 @@ const providerConfig = {
 };
 
 const oidc = new Provider(`http://localhost:${port}`, providerConfig);
-oidc.initialize({ clients }).then(function() {
-  app.use('/', oidc.callback);
-  app.listen(port, () => {
-    console.log(
-      `oidc-provider listening on port ${port}, check http://localhost:${port}/.well-known/openid-configuration`,
-    );
-  });
+const server = oidc.listen(port, () => {
+  console.log(
+    `oidc-provider listening on port ${port}, check http://localhost:${port}/.well-known/openid-configuration`,
+  );
 });

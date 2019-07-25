@@ -1,10 +1,13 @@
-const clientCallbackUrl = 'https://westpac-sso-app/callback';
-const clientId = 'westpac-sso-app';
+const providerBaseUrl = 'http://localhost';
+const clientCallbackUrl = 'https://httpbin.org/get';
+const clientId = 'react-web-app';
+const responseType = 'code id_token';
 const clients = [
   {
     client_id: clientId,
     grant_types: ['implicit'],
-    response_types: ['id_token'],
+    response_types: [responseType],
+    grant_types: ['authorization_code', 'implicit'],
     redirect_uris: [clientCallbackUrl],
     token_endpoint_auth_method: 'none',
   },
@@ -36,36 +39,44 @@ const jwks = {
   ],
 };
 module.exports = {
-  clients,
-  jwks,
-  cookies: {
-    keys: ['a', 'b'],
-  },
-  claims: {
-    email: ['email', 'email_verified'],
-    phone: ['phone_number', 'phone_number_verified'],
-    profile: [
-      'birthdate',
-      'family_name',
-      'gender',
-      'given_name',
-      'locale',
-      'middle_name',
-      'name',
-      'nickname',
-      'picture',
-      'preferred_username',
-      'profile',
-      'updated_at',
-      'website',
-      'zoneinfo',
-    ],
-  },
-  features: {
-    clientCredentials: true,
-    devInteractions: {
-      enabled: true,
+  providerBaseUrl,
+  responseType,
+  clientId,
+  providerConfig: {
+    clients,
+    jwks,
+    cookies: {
+      keys: ['a', 'b'],
     },
-    sessionManagement: true,
+    claims: {
+      email: ['email', 'email_verified'],
+      phone: ['phone_number', 'phone_number_verified'],
+      profile: [
+        'birthdate',
+        'family_name',
+        'gender',
+        'given_name',
+        'locale',
+        'middle_name',
+        'name',
+        'nickname',
+        'picture',
+        'preferred_username',
+        'profile',
+        'updated_at',
+        'website',
+        'zoneinfo',
+      ],
+    },
+    formats: {
+      AccessToken: 'jwt',
+    },
+    features: {
+      clientCredentials: { enabled: true },
+      devInteractions: { enabled: true },
+      introspection: { enabled: true },
+      revocation: { enabled: true },
+      sessionManagement: { enabled: true },
+    },
   },
 };
